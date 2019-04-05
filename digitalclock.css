@@ -1,0 +1,33 @@
+/*!
+ * DigitalClock styles
+ * https://github.com/sjakovic/digital-clock-js
+ * Digital clock library for showing digital date on web pages
+ *
+ * Author: Simo Jakovic,
+ * Website: https://jakovic.com
+ *
+ * Released under the MIT license
+ */
+.digitalclock-date {
+    display: inline-block;
+}
+
+.digitalclock-time {
+    display: inline-block;
+    margin: 0 0 0 5px;
+}
+
+/*.digitalclock-date {*/
+    /*display: block;*/
+    /*color: turquoise;*/
+/*}*/
+
+/*.digitalclock-time {*/
+    /*padding-top: 10px;*/
+    /*font-size: 48px;*/
+    /*border: none;*/
+    /*font-weight: bold;*/
+    /*color: turquoise;*/
+    /*margin: 0;*/
+    /*display: block;*/
+/*}*/

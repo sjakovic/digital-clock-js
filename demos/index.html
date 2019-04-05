@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+    <script type="text/javascript" src="../digitalclock.js"></script>
+    <meta charset="utf-8"/>
+    <title>Digital Clock Javascript library - Test Page - Simo Jakovic</title>
+    <link href="../digitalclock.css" rel="stylesheet"/>
+    <style>
+        /* Custom style for this example page */
+        body {
+            padding-bottom: 80px;
+        }
+
+        .digital-clock-container {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            margin: 3px auto
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Examples -->
+    <a name="examples"></a>
+    <h2>Examples</h2>
+    <hr/>
+
+    <!-- Example 1 -->
+    <h3>Basic</h3>
+    <p>Shows date and time with no styling, and keep all other things default.</p>
+
+    <div class="source-code">
+        <!--
+        DigitalClock.init('#digital_clock_1');
+        -->
+    </div>
+
+    <div class="digital-clock-container">
+        <div id="digital_clock_1"></div>
+    </div>
+
+    <script>
+        DigitalClock.init('#digital_clock_1');
+    </script>
+    <!-- /Example 1 -->
+
+    <!-- Example 2 -->
+    <h3>Show date only</h3>
+    <p>Shows date without time.</p>
+
+    <div class="source-code">
+        <!--
+        DigitalClock.init('#digital_clock_2', {
+            showTime: false
+        });
+        -->
+    </div>
+
+    <div class="digital-clock-container">
+        <div id="digital_clock_2"></div>
+    </div>
+
+    <script>
+        DigitalClock.init('#digital_clock_2', {
+            showTime: false
+        });
+    </script>
+    <!-- /Example 2 -->
+
+    <!-- Example 3 -->
+    <h3>Show time only</h3>
+    <p>Shows time without date.</p>
+
+    <div class="source-code">
+        <!--
+        DigitalClock.init('#digital_clock_3', {
+            showDate: false
+        });
+        -->
+    </div>
+
+    <div class="digital-clock-container">
+        <div id="digital_clock_3"></div>
+    </div>
+
+    <script>
+        DigitalClock.init('#digital_clock_3', {
+            showDate: false
+        });
+    </script>
+    <!-- /Example 3 -->
+
+    <!-- Example 4 -->
+    <h3>Adding custom date css</h3>
+
+    <div class="source-code">
+        <!--
+        DigitalClock.init('#digital_clock_4', {
+            cssDate: 'digitalclock-example-4'
+        });
+        -->
+    </div>
+
+    <div class="digital-clock-container">
+        <div id="digital_clock_4"></div>
+    </div>
+
+    <style>
+        .digitalclock-example-4 {
+            color: #44A95B;
+        }
+    </style>
+        Di§gitalClock.init('#digital_clock_4', {
+            cssDate: 'digitalclock-example-4'
+        });
+    </script>
+    <!-- /Example 4 -->
+
+    <hr/>
+    <footer class="text-center"><a href="https://github.com/sjakovic/digital-clock-js">Go to the project.</a> | <a
+            href="mailto:s.jakovic@gmail.com">Contact me</a> if you can help to improve this example page.
+    </footer>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.source-code').each(function (index) {
+            var $section = $(this);
+            var code = $(this).html().replace('<!--', '').replace('-->', '');
+
+            // Code preview
+            var $codePreview = $('<pre class="prettyprint lang-javascript"></pre>');
+            $codePreview.text(code);
+            $section.html($codePreview);
+        });
+    });
+</script>
+</body>
+</html>
