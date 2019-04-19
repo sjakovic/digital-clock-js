@@ -39,8 +39,8 @@
             time: '',
             showDate: true,
             showTime: true,
-            cssDate: 'digitalclock-date',
-            cssTime: 'digitalclock-time',
+            cssDate: '',
+            cssTime: '',
             language: {
                 weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
                 months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -67,7 +67,7 @@
                 options = Object.assign({}, this.options);
             } else {
                 let defaultOptions = Object.assign({}, this.options);
-                options = Object.assign(defaultOptions, options)
+                options = Object.assign(defaultOptions, options);
             }
 
             elem.innerHTML = this.template(options);
@@ -84,6 +84,10 @@
             if (params.showDate) {
                 let css = (params.cssDate !== '') ? `class="${params.cssDate}"` : '';
                 html += `<span ${css}>${params.date}</span>`;
+            }
+
+            if(params.showDate && params.showTime) {
+                html += ' ';
             }
 
             if (params.showTime) {
@@ -103,26 +107,13 @@
             let timeArr = [d.getHours(), this.leadingZero(d.getMinutes()), this.leadingZero(d.getSeconds())];
 
             elem.innerHTML = this.template(Object.assign(options, {
-                date: dateArr.join(''),
+                date: d.format('dddd, mmmm ds, yyyy, h:MM:ss TT'),
                 time: timeArr.join(':')
             }));
         },
 
         leadingZero: function (number) {
             return (number < 10 ? '0' : '') + number;
-        },
-
-        set: function () {
-            // set one or more params
-            // variable argument list: 1 param = hash, 2 params = key, value
-            if (arguments.length == 1) {
-                for (var key in arguments[0]) {
-                    this.params[key] = arguments[0][key];
-                }
-            }
-            else {
-                this.params[arguments[0]] = arguments[1];
-            }
         },
 
         on: function (name, callback) {
