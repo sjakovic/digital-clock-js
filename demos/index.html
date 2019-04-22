@@ -204,13 +204,12 @@
 
 
         <!-- Example 7 -->
-        <h3>Example 6: Change language. Adding Serbian language.</h3>
+        <h3>Example 7: Change language. Adding Serbian language.</h3>
 
         <div class="source-code">
             <!--
-            DigitalClock.init('#digital_clock_6', {
-                cssDate: 'digitalclock-example-6-date',
-                cssTime: 'digitalclock-example-6-time'
+            DigitalClock.init('#digital_clock_7', {
+                dateFormatLang: 'sr-SR'
             });
             -->
         </div>
@@ -221,13 +220,33 @@
 
         <script>
             DigitalClock.init('#digital_clock_7', {
-                language: {
-                    weekdays: ['Недеља', 'Понедељак', 'Уторак', 'Среда', 'Четвртак', 'Петак', 'Субота'],
-                    months: ['Јануар', 'Фебруар', 'Март', 'Април', 'Мај', 'Јун', 'Јул', 'Август', 'Септембар', 'Октобар', 'Новембар', 'Децембар']
-                }
+                dateFormatLang: 'sr-SR'
             });
         </script>
-        <!-- /Example 6 -->
+        <!-- /Example 7 -->
+
+        <!-- Example 8 -->
+        <h3>Example 8: Change format of date.</h3>
+
+        <div class="source-code">
+            <!--
+            DigitalClock.init('#digital_clock_8', {
+                dateFormatOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+            });
+            -->
+        </div>
+
+        <div class="digital-clock-container">
+            <div id="digital_clock_8"></div>
+        </div>
+
+        <script>
+            DigitalClock.init('#digital_clock_8', {
+                dateFormatOptions: { weekday: 'short', year: '2-digit', month: 'long', day: 'numeric' },
+                showTime: false
+            });
+        </script>
+        <!-- /Example 8 -->
 
         <hr />
         <footer class="text-center"><a href="https://github.com/sjakovic/digital-clock-js">Go to the project.</a> | <a

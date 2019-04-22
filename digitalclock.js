@@ -41,10 +41,9 @@
             showTime: true,
             cssDate: '',
             cssTime: '',
-            language: {
-                weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-                months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-            }
+            // Date formating options https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
+            dateFormatLang: 'en-US',
+            dateFormatOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
         },
 
         errors: {
@@ -56,7 +55,7 @@
         init: function (elem, options) {
 
             // Attach already created element or pass element ID
-            if (typeof(elem) === 'string') {
+            if (typeof (elem) === 'string') {
                 elem = document.getElementById(elem) || document.querySelector(elem);
             }
             if (!elem) {
@@ -86,7 +85,7 @@
                 html += `<span ${css}>${params.date}</span>`;
             }
 
-            if(params.showDate && params.showTime) {
+            if (params.showDate && params.showTime) {
                 html += ' ';
             }
 
@@ -100,14 +99,10 @@
 
         start: function (elem, options) {
             let d = new Date();
-            let dateArr = [
-                options.language.weekdays[d.getDay()], ', ', d.getDate(), ' ',
-                options.language.months[d.getMonth()], ' ', d.getFullYear()
-            ];
             let timeArr = [d.getHours(), this.leadingZero(d.getMinutes()), this.leadingZero(d.getSeconds())];
 
             elem.innerHTML = this.template(Object.assign(options, {
-                date: d.format('dddd, mmmm ds, yyyy, h:MM:ss TT'),
+                date: d.toLocaleDateString(options.dateFormatLang, options.dateFormatOptions),
                 time: timeArr.join(':')
             }));
         },
@@ -148,11 +143,11 @@
                 for (var idx = 0, len = this.hooks[name].length; idx < len; idx++) {
                     var hook = this.hooks[name][idx];
 
-                    if (typeof(hook) == 'function') {
+                    if (typeof (hook) == 'function') {
                         // callback is function reference, call directly
                         hook.apply(this, args);
                     }
-                    else if ((typeof(hook) == 'object') && (hook.length == 2)) {
+                    else if ((typeof (hook) == 'object') && (hook.length == 2)) {
                         // callback is PHP-style object instance method
                         hook[0][hook[1]].apply(hook[0], args);
                     }
