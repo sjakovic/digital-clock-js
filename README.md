@@ -1,1 +1,2 @@
-# digital-clock-js
+# DigitalClockJS
+
